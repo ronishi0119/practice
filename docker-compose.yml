@@ -1,0 +1,17 @@
+services: 
+  hello:
+    build: ./hello
+    image: hello:1.2
+    volumes:
+      - ./hello:/app
+    ports:
+      - "8080:3000"
+  
+  database:
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    volumes:
+      - .data:/var/lib/mysql  
+    environment:
+      - MYSQL_ROOT_PASSWORD=Jpassword
